@@ -1,8 +1,9 @@
 import sys
 import os
 
-# Add backend to path so we can import database
-sys.path.append(os.path.abspath('backend'))
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, '..'))
+sys.path.insert(0, ROOT_DIR)
 
 from database import init_db, load_data_to_db
 

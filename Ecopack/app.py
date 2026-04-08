@@ -8,7 +8,7 @@ from sqlalchemy import text
 from fpdf import FPDF
 from datetime import datetime
 
-from .database import get_db_connection, DB_PATH, COST_MODEL_PATH, CO2_MODEL_PATH, BASE_DIR
+from .database import get_db_connection, DB_PATH, COST_MODEL_PATH, CO2_MODEL_PATH, BASE_DIR, init_db, load_data_to_db
 
 app = Flask(__name__, 
             template_folder=os.path.join(BASE_DIR, 'templates'), 
@@ -38,6 +38,25 @@ def load_resources():
 
 # Load model resources when the app module is imported by Gunicorn
 load_resources()
+
+
+def ensure_database_ready():
+    """Create missing tables and seed the materials table if needed."""
+    init_db()
+
+    try:
+        conn = get_db_connection()
+        materials_count = conn.execute(text("SELECT COUNT(*) FROM materials")).scalar()
+        conn.close()
+    except Exception as e:
+        print(f"Database readiness check failed: {e}")
+        materials_count = 0
+
+    if not materials_count:
+        load_data_to_db()
+
+
+ensure_database_ready()
 
 def get_materials_from_db():
     conn = get_db_connection()
