@@ -1,0 +1,101 @@
+material,type,strength,weight_capacity,biodegradability,co2_emission,recyclability,cost,durability,industry
+Cardboard,Cellulose,7,16,9,0.59,90,0.22,5,General
+Recycled Paper,Cellulose,3,7,10,0.23,100,0.12,3,General
+Bioplastic (PLA),Bio-polymer,8,10,8,1.27,0,0.61,6,Food
+Mushroom Packaging,Fungi,6,10,10,0.19,0,0.83,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,8,19,2,1.44,85,0.37,8,Cosmetics
+Bamboo,Natural Fiber,9,27,10,0.19,0,1.18,9,General
+Wood,Natural Fiber,9,29,9,0.31,50,1.55,9,Industrial
+Glass,Inorganic,6,15,0,1.78,100,0.95,7,Cosmetics
+Cornstarch,Bio-polymer,2,3,10,0.47,0,0.52,2,Food
+Honeycomb Paper,Cellulose,6,11,9,0.49,95,0.35,6,Electronics
+Cardboard,Cellulose,6,14,9,0.46,90,0.16,5,General
+Recycled Paper,Cellulose,5,6,10,0.22,100,0.15,3,General
+Bioplastic (PLA),Bio-polymer,8,10,8,1.28,0,0.58,6,Food
+Mushroom Packaging,Fungi,5,7,10,0.11,0,0.75,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,8,19,2,1.49,85,0.39,8,Cosmetics
+Bamboo,Natural Fiber,9,26,10,0.11,0,1.18,9,General
+Wood,Natural Fiber,7,29,9,0.41,50,1.51,9,Industrial
+Glass,Inorganic,4,16,0,1.82,100,0.88,7,Cosmetics
+Cornstarch,Bio-polymer,2,5,10,0.31,0,0.55,2,Food
+Honeycomb Paper,Cellulose,6,13,9,0.36,95,0.25,6,Electronics
+Cardboard,Cellulose,7,13,9,0.54,90,0.23,5,General
+Recycled Paper,Cellulose,5,7,10,0.39,100,0.17,3,General
+Bioplastic (PLA),Bio-polymer,8,8,8,1.22,0,0.58,6,Food
+Mushroom Packaging,Fungi,6,10,10,0.15,0,0.81,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,9,20,2,1.49,85,0.36,8,Cosmetics
+Bamboo,Natural Fiber,9,25,10,0.25,0,1.21,9,General
+Wood,Natural Fiber,9,30,9,0.4,50,1.49,9,Industrial
+Glass,Inorganic,5,16,0,1.72,100,0.85,7,Cosmetics
+Cornstarch,Bio-polymer,4,1,10,0.36,0,0.5,2,Food
+Honeycomb Paper,Cellulose,7,14,9,0.35,95,0.29,6,Electronics
+Cardboard,Cellulose,7,17,9,0.45,90,0.16,5,General
+Recycled Paper,Cellulose,5,5,10,0.23,100,0.19,3,General
+Bioplastic (PLA),Bio-polymer,6,8,8,1.12,0,0.6,6,Food
+Mushroom Packaging,Fungi,5,8,10,0.06,0,0.76,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,7,18,2,1.45,85,0.41,8,Cosmetics
+Bamboo,Natural Fiber,8,26,10,0.17,0,1.18,9,General
+Wood,Natural Fiber,8,30,9,0.38,50,1.47,9,Industrial
+Glass,Inorganic,6,14,0,1.77,100,0.94,7,Cosmetics
+Cornstarch,Bio-polymer,3,1,10,0.38,0,0.46,2,Food
+Honeycomb Paper,Cellulose,7,13,9,0.35,95,0.32,6,Electronics
+Cardboard,Cellulose,7,13,9,0.43,90,0.25,5,General
+Recycled Paper,Cellulose,5,3,10,0.4,100,0.14,3,General
+Bioplastic (PLA),Bio-polymer,8,12,8,1.17,0,0.61,6,Food
+Mushroom Packaging,Fungi,5,7,10,0.11,0,0.79,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,8,21,2,1.42,85,0.39,8,Cosmetics
+Bamboo,Natural Fiber,8,27,10,0.23,0,1.21,9,General
+Wood,Natural Fiber,9,28,9,0.33,50,1.5,9,Industrial
+Glass,Inorganic,4,15,0,1.82,100,0.92,7,Cosmetics
+Cornstarch,Bio-polymer,4,2,10,0.4,0,0.47,2,Food
+Honeycomb Paper,Cellulose,8,13,9,0.49,95,0.29,6,Electronics
+Cardboard,Cellulose,7,14,9,0.57,90,0.22,5,General
+Recycled Paper,Cellulose,3,3,10,0.24,100,0.15,3,General
+Bioplastic (PLA),Bio-polymer,7,10,8,1.15,0,0.57,6,Food
+Mushroom Packaging,Fungi,4,9,10,0.11,0,0.77,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,8,21,2,1.51,85,0.44,8,Cosmetics
+Bamboo,Natural Fiber,10,23,10,0.16,0,1.22,9,General
+Wood,Natural Fiber,9,31,9,0.48,50,1.53,9,Industrial
+Glass,Inorganic,6,13,0,1.73,100,0.94,7,Cosmetics
+Cornstarch,Bio-polymer,3,3,10,0.37,0,0.54,2,Food
+Honeycomb Paper,Cellulose,6,14,9,0.36,95,0.28,6,Electronics
+Cardboard,Cellulose,6,15,9,0.53,90,0.17,5,General
+Recycled Paper,Cellulose,3,6,10,0.25,100,0.13,3,General
+Bioplastic (PLA),Bio-polymer,8,10,8,1.23,0,0.61,6,Food
+Mushroom Packaging,Fungi,6,8,10,0.13,0,0.78,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,8,22,2,1.5,85,0.44,8,Cosmetics
+Bamboo,Natural Fiber,10,24,10,0.17,0,1.21,9,General
+Wood,Natural Fiber,9,28,9,0.34,50,1.52,9,Industrial
+Glass,Inorganic,6,16,0,1.7,100,0.91,7,Cosmetics
+Cornstarch,Bio-polymer,2,4,10,0.49,0,0.55,2,Food
+Honeycomb Paper,Cellulose,6,12,9,0.45,95,0.35,6,Electronics
+Cardboard,Cellulose,5,13,9,0.51,90,0.21,5,General
+Recycled Paper,Cellulose,3,6,10,0.26,100,0.14,3,General
+Bioplastic (PLA),Bio-polymer,8,8,8,1.16,0,0.57,6,Food
+Mushroom Packaging,Fungi,4,7,10,0.19,0,0.82,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,8,19,2,1.52,85,0.45,8,Cosmetics
+Bamboo,Natural Fiber,9,25,10,0.16,0,1.18,9,General
+Wood,Natural Fiber,7,28,9,0.44,50,1.49,9,Industrial
+Glass,Inorganic,4,14,0,1.86,100,0.93,7,Cosmetics
+Cornstarch,Bio-polymer,2,5,10,0.32,0,0.45,2,Food
+Honeycomb Paper,Cellulose,6,13,9,0.43,95,0.32,6,Electronics
+Cardboard,Cellulose,6,16,9,0.58,90,0.15,5,General
+Recycled Paper,Cellulose,4,4,10,0.29,100,0.17,3,General
+Bioplastic (PLA),Bio-polymer,8,8,8,1.13,0,0.65,6,Food
+Mushroom Packaging,Fungi,5,7,10,0.17,0,0.78,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,8,20,2,1.43,85,0.4,8,Cosmetics
+Bamboo,Natural Fiber,8,26,10,0.14,0,1.21,9,General
+Wood,Natural Fiber,8,32,9,0.34,50,1.49,9,Industrial
+Glass,Inorganic,6,16,0,1.73,100,0.95,7,Cosmetics
+Cornstarch,Bio-polymer,3,3,10,0.46,0,0.48,2,Food
+Honeycomb Paper,Cellulose,7,11,9,0.31,95,0.35,6,Electronics
+Cardboard,Cellulose,7,13,9,0.54,90,0.16,5,General
+Recycled Paper,Cellulose,4,3,10,0.29,100,0.12,3,General
+Bioplastic (PLA),Bio-polymer,7,8,8,1.23,0,0.58,6,Food
+Mushroom Packaging,Fungi,4,10,10,0.12,0,0.79,4,Electronics
+Recycled Plastic (rPET),Recycled Polymer,8,20,2,1.55,85,0.35,8,Cosmetics
+Bamboo,Natural Fiber,9,26,10,0.11,0,1.15,9,General
+Wood,Natural Fiber,8,31,9,0.34,50,1.45,9,Industrial
+Glass,Inorganic,5,17,0,1.79,100,0.87,7,Cosmetics
+Cornstarch,Bio-polymer,3,5,10,0.38,0,0.51,2,Food
+Honeycomb Paper,Cellulose,6,13,9,0.31,95,0.29,6,Electronics

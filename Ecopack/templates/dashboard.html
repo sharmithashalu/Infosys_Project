@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoInsight Pro | Sustainability Analytics Dashboard</title>
+  <meta name="description" content="Real-time sustainability analytics, CO₂ tracking, cost distribution, and material trends — powered by EcoInsight Pro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar" id="mainNav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C8 8 4 10 4 15a8 8 0 0016 0c0-5-4-7-8-13z" fill="white" opacity="0.9"/>
+            <path d="M12 8v9M9 14l3 3 3-3" stroke="rgba(0,0,0,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="brand-name">EcoInsight<span> Pro</span></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/" id="nav-recommend">Recommend</a></li>
+        <li><a href="/dashboard" class="active" id="nav-dashboard">Analytics</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          Live BI
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle theme">
+          <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ DASHBOARD CONTENT ══ -->
+  <div class="page-wrapper">
+
+    <!-- Header Row -->
+    <div class="dashboard-header fade-in">
+      <div class="dashboard-title-group">
+        <h2>Sustainability Analytics</h2>
+        <p>Real-time BI dashboard — monitoring materials, emissions, and cost efficiency</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="btn btn-outline" onclick="loadDashboardData()" id="refreshBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+          Sync Data
+        </button>
+        
+        <!-- Separate Export Buttons -->
+        <button class="btn btn-primary" onclick="exportData('pdf')" title="Download PDF Report">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          PDF Report
+        </button>
+
+        <button class="btn btn-outline" onclick="exportData('excel')" title="Download Excel Data">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Excel Data
+        </button>
+      </div>
+    </div>
+
+    <!-- ── STATS ROW ── -->
+    <div class="stats-row">
+      <!-- Materials -->
+      <div class="stat-card fade-in fade-in-d1" style="--stat-accent:rgba(34,197,94,0.15)">
+        <div class="stat-icon-wrap" style="background:rgba(34,197,94,0.12)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="stat-val" style="color:#22c55e" id="matCount">—</div>
+        <div class="stat-label">Materials Monitored</div>
+        <div class="stat-trend up">↑ Full Registry</div>
+      </div>
+
+      <!-- CO2 -->
+      <div class="stat-card fade-in fade-in-d2" style="--stat-accent:rgba(16,185,129,0.15)">
+        <div class="stat-icon-wrap" style="background:rgba(16,185,129,0.12)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="stat-val" style="color:#10b981" id="co2Red">—</div>
+        <div class="stat-label">CO₂ Reduction</div>
+        <div class="stat-trend up">↑ vs. Baseline</div>
+      </div>
+
+      <!-- Cost Savings -->
+      <div class="stat-card fade-in fade-in-d3" style="--stat-accent:rgba(59,130,246,0.12)">
+        <div class="stat-icon-wrap" style="background:rgba(59,130,246,0.12)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linecap="round">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+        </div>
+        <div class="stat-val" style="color:#3b82f6" id="costSav">—</div>
+        <div class="stat-label">Cost Savings Index</div>
+        <div class="stat-trend up">↑ vs. Conventional</div>
+      </div>
+
+      <!-- Avg Cost -->
+      <div class="stat-card fade-in fade-in-d4" style="--stat-accent:rgba(245,158,11,0.12)">
+        <div class="stat-icon-wrap" style="background:rgba(245,158,11,0.12)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/>
+          </svg>
+        </div>
+        <div class="stat-val" style="color:#f59e0b" id="avgCost">—</div>
+        <div class="stat-label">Avg. Unit Cost (₹)</div>
+        <div class="stat-trend down">Per Material Unit</div>
+      </div>
+    </div>
+
+    <!-- ── TREND CHART (Full Width) ── -->
+    <div class="charts-grid full-width" style="margin-bottom:1.4rem">
+      <div class="chart-card fade-in fade-in-d1">
+        <div class="chart-card-header">
+          <div class="chart-icon" style="background:rgba(34,197,94,0.12)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div>
+            <div class="chart-title">Recommendation Trends Over Time</div>
+            <div class="chart-sub">Daily request volume tracked by the BI engine</div>
+          </div>
+        </div>
+        <div class="chart-area" id="trendChart"></div>
+      </div>
+    </div>
+
+    <!-- ── CO2 + COST CHARTS ── -->
+    <div class="charts-grid">
+      <div class="chart-card fade-in fade-in-d2">
+        <div class="chart-card-header">
+          <div class="chart-icon" style="background:rgba(16,185,129,0.12)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round">
+              <path d="M12 20V10M18 20V4M6 20V16"/>
+            </svg>
+          </div>
+          <div>
+            <div class="chart-title">Carbon Footprint by Category</div>
+            <div class="chart-sub">Avg CO₂ emission per material type</div>
+          </div>
+        </div>
+        <div class="chart-area" id="co2Chart"></div>
+      </div>
+
+      <div class="chart-card fade-in fade-in-d3">
+        <div class="chart-card-header">
+          <div class="chart-icon" style="background:rgba(59,130,246,0.12)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linecap="round">
+              <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="chart-title">Industry Cost Distribution</div>
+            <div class="chart-sub">Average material cost split by industry</div>
+          </div>
+        </div>
+        <div class="chart-area" id="costChart"></div>
+      </div>
+    </div>
+
+  </div><!-- /page-wrapper -->
+
+  <footer class="footer">
+    <p>© 2026 <strong>EcoInsight Pro</strong> by EcoPackAI — Leaders in Life-Cycle Assessment (LCA) Data Visualization.</p>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadDashboardData();
+      setInterval(loadDashboardData, 60000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoInsight Pro | AI-Powered Sustainable Packaging</title>
+  <meta name="description" content="EcoInsight Pro — Harness AI to find the most sustainable, cost-efficient packaging materials for your products.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar" id="mainNav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C8 8 4 10 4 15a8 8 0 0016 0c0-5-4-7-8-13z" fill="white" opacity="0.9"/>
+            <path d="M12 8v9M9 14l3 3 3-3" stroke="rgba(0,0,0,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="brand-name">EcoInsight<span> Pro</span></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/" class="active" id="nav-recommend">Recommend</a></li>
+        <li><a href="/dashboard" id="nav-dashboard">Analytics</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          AI Active
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle theme">
+          <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <header class="hero fade-in">
+    <div class="hero-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      AI-Powered Sustainability Engine
+    </div>
+    <h1>
+      Smart Packaging, <br>
+      <span class="gradient-text">Zero Compromise</span>
+    </h1>
+    <p>
+      Input your product specs and let our AI evaluate 500+ sustainable materials —
+      optimizing for cost, CO₂ footprint, strength, and recyclability in seconds.
+    </p>
+  </header>
+
+  <!-- ══ MAIN SPLIT LAYOUT ══ -->
+  <main class="page-wrapper">
+    <div class="split-layout">
+
+      <!-- ─── LEFT: Input Form ─── -->
+      <div class="card form-panel fade-in fade-in-d1">
+        <div class="form-panel-header">
+          <div class="form-panel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+              <path d="M9 3H5a2 2 0 00-2 2v4M9 3h6M9 3v4M15 3h4a2 2 0 012 2v4M15 3v4M3 9v10a2 2 0 002 2h14a2 2 0 002-2V9M3 9h18"/>
+            </svg>
+          </div>
+          <div>
+            <div class="form-panel-title">Product Attributes</div>
+            <div class="form-panel-subtitle">Configure your packaging requirements</div>
+          </div>
+        </div>
+
+        <form id="recommendationForm" novalidate>
+
+          <!-- Product Name -->
+          <div class="field">
+            <label for="productName">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Product Name
+            </label>
+            <input type="text" id="productName" placeholder="e.g. Eco Laptop Case" autocomplete="off">
+          </div>
+
+          <!-- Industry -->
+          <div class="field">
+            <label for="industry">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Industry Category
+            </label>
+            <div class="select-wrap">
+              <select id="industry">
+                <option value="General">General</option>
+                <option value="Food">Food &amp; Beverage</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Cosmetics">Cosmetics</option>
+                <option value="Industrial">Industrial</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Weight -->
+          <div class="field">
+            <label for="weight">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="5" r="3"/><path d="M6.5 8a2.5 2.5 0 00-2.45 3L5 17a2 2 0 002 2h10a2 2 0 002-2l.95-6A2.5 2.5 0 0017.5 8z"/></svg>
+              Product Weight (kg)
+            </label>
+            <div class="range-field">
+              <div class="range-top">
+                <span style="font-size:0.8rem;color:var(--text-muted)">0.1 kg – 50 kg</span>
+                <span class="range-value" id="weightVal">1 kg</span>
+              </div>
+              <input type="range" id="weight" min="0.1" max="50" step="0.1" value="1">
+            </div>
+          </div>
+
+          <!-- Durability -->
+          <div class="field">
+            <label for="durability">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Durability Requirement (1–10)
+            </label>
+            <div class="range-field">
+              <div class="range-top">
+                <span style="font-size:0.8rem;color:var(--text-muted)">Low → High</span>
+                <span class="range-value" id="durabilityVal">5</span>
+              </div>
+              <input type="range" id="durability" min="1" max="10" step="1" value="5">
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-run" id="runBtn">
+            <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <span class="btn-text" style="display:flex;align-items:center;gap:9px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              Run Eco Analysis
+            </span>
+          </button>
+        </form>
+      </div>
+
+      <!-- ─── RIGHT: Results ─── -->
+      <div class="card results-panel fade-in fade-in-d2" id="resultsContainer">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round">
+              <path d="M12 2C8 8 4 10 4 15a8 8 0 0016 0c0-5-4-7-8-13z"/>
+              <path d="M12 10v5M9 13l3 3 3-3"/>
+            </svg>
+          </div>
+          <h3>Ready for Analysis</h3>
+          <p>Configure your product attributes on the left and click <strong>Run Eco Analysis</strong> to get AI-powered material recommendations.</p>
+        </div>
+      </div>
+
+    </div><!-- /split-layout -->
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <p>© 2026 <strong>EcoInsight Pro</strong> by EcoPackAI — Leading the transition to a Circular Economy.</p>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
